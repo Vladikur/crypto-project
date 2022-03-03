@@ -38,18 +38,18 @@ function Form({ onSeeBalance, wallet, preloader }) {
   }
 
   const submitButtonClassName = (
-    `${!valid ? 'form__submit_type_disactive' : 'form__submit'}`
+    `form__submit ${!valid ? 'form__submit_type_disactive' : ''}`
   );
 
   return (
     <form onSubmit={handleSubmit} className="form" noValidate>
-      <h2>Узнайте баланс кошелька</h2>
+      <h2 className="form__header">Узнайте баланс кошелька</h2>
       <div className="form__input-container">
         <span className="form__input-name">Тип валюты кошелька</span>
         <select value={data.type || ''} onChange={handleChange} className="form__select" name="type">
           <option value="None">Не выбрано</option>
           <option value="Bitcoin">Bitcoin</option>
-          <option value="Ethereum">Ethereum</option>
+          <option value="Binance-coin">Binance-coin</option>
         </select>
       </div>
       <div className="form__input-container">

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Route, Switch, } from 'react-router-dom';
 import Form from '../Form/Form';
 import Сurrencies from '../Сurrencies/Сurrencies';
+import Header from '../Header/Header';
 
 function App() {
 
@@ -13,24 +15,24 @@ function App() {
   });
   const [isReceiving, setIsReceiving] = React.useState(false);
 
-  // useEffect(() => {
-  //   setIsReceiving(true)
-  //   axios.get(`https://data.messari.io/api/v1/assets?fields=id,slug,symbol,metrics/market_data/price_usd`)
-  //   .then(res => {
-  //     const data = res.data.data;
-  //     setAllCruptos(data)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  //   .finally(() => {
-  //     setIsReceiving(false)
-  //   });
+  useEffect(() => {
+    setIsReceiving(true)
+    axios.get(`https://data.messari.io/api/v1/assets?fields=id,slug,symbol,metrics/market_data/price_usd`)
+    .then(res => {
+      const data = res.data.data;
+      setAllCruptos(data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+    .finally(() => {
+      setIsReceiving(false)
+    });
 
-  // }, [])
+  }, [])
 
   function onSeeBalance(data) {
-    if(data.type === "Ethereum") {
+    if(data.type === "Binance-coin") {
       setIsReceiving(true)
       axios.get('https://api.bscscan.com/api', {
         params: {
@@ -77,15 +79,27 @@ function App() {
 
   return (
     <div className="app">
-      <Сurrencies
-        preloader={isReceiving}
-        cruptos={allCruptos}
-      />
-      <Form
-        onSeeBalance={onSeeBalance}
-        wallet={walletData}
-        preloader={isReceiving}
-      />
+
+    <Header/>
+
+      <Switch>
+
+        <Route exact path='/'>
+          <Сurrencies
+            preloader={isReceiving}
+            cruptos={allCruptos}
+          />
+        </Route>
+
+        <Route path='/form'>
+          <Form
+            onSeeBalance={onSeeBalance}
+            wallet={walletData}
+            preloader={isReceiving}
+          />
+        </Route>
+
+      </Switch>
     </div>
   );
 }

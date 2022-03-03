@@ -6,6 +6,7 @@ function Сurrencies({preloader, cruptos}) {
 
   return (
     <div className="сurrencies">
+      <h2 className="currencies__header">Ведущие криптовалюты</h2>
       {preloader ? <Preloader/> : 
         <div className="currencies__cryptocurrency-container">
           {cruptos.map((crypto) => (
