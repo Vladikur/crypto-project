@@ -1,0 +1,36 @@
+.cryptocurrency {
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 300px;
+}
+
+.cryptocurrency__slug {
+  margin: 0;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.cryptocurrency__symbol {
+  margin: 5px 0 0 0;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.cryptocurrency__price {
+  margin: 0;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+}

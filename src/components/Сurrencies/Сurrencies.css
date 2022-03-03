@@ -1,0 +1,28 @@
+.currencies__cryptocurrency-container {
+  margin: 40px auto 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  max-width: 940px;
+  display: grid;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding: 0;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1000px) {
+  .currencies__cryptocurrency-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    max-width: 620px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .currencies__cryptocurrency-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    max-width: 300px;
+  }
+}
