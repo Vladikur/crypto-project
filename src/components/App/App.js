@@ -14,8 +14,10 @@ function App() {
     balance: '',
   });
   const [isReceiving, setIsReceiving] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
   useEffect(() => {
+    setError(false)
     setIsReceiving(true)
     axios.get(`https://data.messari.io/api/v1/assets?fields=id,slug,symbol,metrics/market_data/price_usd`)
     .then(res => {
@@ -23,7 +25,8 @@ function App() {
       setAllCruptos(data)
     })
     .catch((err) => {
-      console.log(err)
+      setError(true)
+      console.log(err.name)
     })
     .finally(() => {
       setIsReceiving(false)
@@ -33,6 +36,7 @@ function App() {
 
   function onSeeBalance(data) {
     if(data.type === "Binance-coin") {
+      setError(false)
       setIsReceiving(true)
       axios.get('https://api.bscscan.com/api', {
         params: {
@@ -44,20 +48,26 @@ function App() {
       })
       .then(res => {
         const responce = res.data;
-        setWalletData({
-          type: data.type,
-          address: data.address,
-          balance: responce.result,
-        })
+        if (responce.result === 'Error! Invalid address format') {
+          setError(true)
+        } else {
+          setWalletData({
+            type: data.type,
+            address: data.address,
+            balance: responce.result,
+          })
+        }
       })
       .catch((err) => {
         console.log(err)
+        setError(true)
       })
       .finally(() => {
         setIsReceiving(false)
       });
     }
     if(data.type === "Bitcoin") {
+      setError(false)
       setIsReceiving(true)
       axios.get(`https://blockchain.info/q/addressbalance/${data.address}`)
       .then(res => {
@@ -70,6 +80,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
+        setError(true)
       })
       .finally(() => {
         setIsReceiving(false)
@@ -88,6 +99,7 @@ function App() {
           <Сurrencies
             preloader={isReceiving}
             cruptos={allCruptos}
+            error={error}
           />
         </Route>
 
@@ -96,6 +108,7 @@ function App() {
             onSeeBalance={onSeeBalance}
             wallet={walletData}
             preloader={isReceiving}
+            error={error}
           />
         </Route>
 

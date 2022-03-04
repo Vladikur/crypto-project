@@ -1,0 +1,45 @@
+.wallet__container {
+  margin: 0 auto 0 auto;
+  max-width: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.wallet__header {
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  text-align: center;
+}
+
+.wallet__text {
+  margin: 0 0 5px 0;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  opacity: 0.5;
+}
+
+.wallet__count {
+  margin: 0 0 20px 0;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.wallet__error {
+  margin: 30px 10px 0 10px;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgb(230, 0, 0);
+  text-align: center;
+}

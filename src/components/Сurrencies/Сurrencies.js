@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Preloader from '../Preloader/Preloader';
 import Сryptocurrency from '../Сryptocurrency/Сryptocurrency';
 
-function Сurrencies({preloader, cruptos}) {
+function Сurrencies({preloader, cruptos, error}) {
 
   return (
     <div className="сurrencies">
       <h2 className="currencies__header">Ведущие криптовалюты</h2>
-      {preloader ? <Preloader/> : 
+      { error ? <p className="currencies__error">При загрузке данных произошла ошибка, попробуйте перезагрузить страницу.</p> : ''}
+      { preloader ? <Preloader/> : 
         <div className="currencies__cryptocurrency-container">
           {cruptos.map((crypto) => (
             <Сryptocurrency

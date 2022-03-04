@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Example from '../Example/Example';
 import Wallet from '../Wallet/Wallet';
 
-function Form({ onSeeBalance, wallet, preloader }) {
+function Form({ onSeeBalance, wallet, preloader, error }) {
 
   const initialForm = {
     address: '', 
@@ -57,7 +57,7 @@ function Form({ onSeeBalance, wallet, preloader }) {
         <input value={data.address || ''} onChange={handleChange} className="form__input" type="text" name="address" required />
       </div>
       <button disabled={!valid} type="submit" className={submitButtonClassName} >Показать баланс кошелька</button>
-      { visibleWalletInfo ? <Wallet wallet={wallet} preloader={preloader} />: <Example/>}
+      { visibleWalletInfo ? <Wallet wallet={wallet} preloader={preloader} error={error} />: <Example/>}
     </form>
   );
 }

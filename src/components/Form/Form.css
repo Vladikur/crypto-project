@@ -1,4 +1,7 @@
-
+.form {
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
 
 .form__header {
   font-family: Inter, 'Arial', sans-serif;
@@ -77,6 +80,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
+  color: black;
   text-align: center;
   transition: opacity 0.1s linear 0.1s;
 }

@@ -1,0 +1,25 @@
+.example__container {
+  margin: 0 auto 0 auto;
+  max-width: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.example__header {
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  text-align: center;
+}
+
+.example__text {
+  margin: 0 0 5px 0;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}

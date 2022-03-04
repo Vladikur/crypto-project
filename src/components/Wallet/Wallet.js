@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Preloader from '../Preloader/Preloader';
 
-function Wallet({wallet, preloader}) {
+function Wallet({wallet, preloader, error}) {
 
   const [balanse, setBalanse] = useState('');
 
@@ -19,11 +19,16 @@ function Wallet({wallet, preloader}) {
 
   return (
     <div className="wallet">
-      {preloader ? <Preloader/> : <div className="wallet__container">
+      { error ? <p className="wallet__error">Данных о кошельке с указанным адресом не найдено.</p> : '' }
+      { preloader ? <Preloader/> : '' }
+      {preloader || error ? '' : <div className="wallet__container">
         <h2 className="wallet__header">Результат:</h2>
-        <p className="wallet__text">Тип валюты: {wallet.type}</p>
-        <p className="wallet__text">Адрес кошелька: {wallet.address}</p>
-        <p className="wallet__balance">Баланс: {balanse}</p>
+        <p className="wallet__text">Тип валюты:</p>
+        <p className="wallet__count">{wallet.type}</p>
+        <p className="wallet__text">Адрес кошелька:</p>
+        <p className="wallet__count">{wallet.address}</p>
+        <p className="wallet__text">Баланс:</p>
+        <p className="wallet__count">{balanse}</p>
       </div>}
     </div>
   );

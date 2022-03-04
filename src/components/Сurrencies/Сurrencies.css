@@ -9,6 +9,8 @@
   padding: 0;
   list-style-type: none;
   flex-wrap: wrap;
+  padding-bottom: 50px;
+  box-sizing: border-box;
 }
 
 .currencies__header {
@@ -17,6 +19,16 @@
   font-weight: 500;
   font-size: 22px;
   line-height: 27px;
+  text-align: center;
+}
+
+.currencies__error {
+  margin: 0 10px 0 10px;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgb(230, 0, 0);
   text-align: center;
 }
 
