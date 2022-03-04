@@ -19,9 +19,9 @@ function Wallet({wallet, preloader, error}) {
 
   return (
     <div className="wallet">
-      { error ? <p className="wallet__error">Данных о кошельке с указанным адресом не найдено.</p> : '' }
+      { error.errorWallet ? <p className="wallet__error">Данных о кошельке с указанным адресом не найдено.</p> : '' }
       { preloader ? <Preloader/> : '' }
-      {preloader || error ? '' : <div className="wallet__container">
+      {preloader || error.errorWallet ? '' : <div className="wallet__container">
         <h2 className="wallet__header">Результат:</h2>
         <p className="wallet__text">Тип валюты:</p>
         <p className="wallet__count">{wallet.type}</p>
@@ -29,6 +29,7 @@ function Wallet({wallet, preloader, error}) {
         <p className="wallet__count">{wallet.address}</p>
         <p className="wallet__text">Баланс:</p>
         <p className="wallet__count">{balanse}</p>
+        <button type="button" className="form__submit" >Выгрузить данные в csv</button>
       </div>}
     </div>
   );

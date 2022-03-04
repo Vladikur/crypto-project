@@ -14,10 +14,16 @@ function App() {
     balance: '',
   });
   const [isReceiving, setIsReceiving] = React.useState(false);
-  const [error, setError] = React.useState(false);
+  const [error, setError] = React.useState({
+    errorCoins: false,
+    errorWallet: false,
+  });
 
   useEffect(() => {
-    setError(false)
+    setError({
+      ...error,
+      errorCoins: false
+    })
     setIsReceiving(true)
     axios.get(`https://data.messari.io/api/v1/assets?fields=id,slug,symbol,metrics/market_data/price_usd`)
     .then(res => {
@@ -25,7 +31,10 @@ function App() {
       setAllCruptos(data)
     })
     .catch((err) => {
-      setError(true)
+      setError({
+        ...error,
+        errorCoins: true
+      })
       console.log(err.name)
     })
     .finally(() => {
@@ -36,7 +45,10 @@ function App() {
 
   function onSeeBalance(data) {
     if(data.type === "Binance-coin") {
-      setError(false)
+      setError({
+        ...error,
+        errorWallet: false
+      })
       setIsReceiving(true)
       axios.get('https://api.bscscan.com/api', {
         params: {
@@ -49,7 +61,10 @@ function App() {
       .then(res => {
         const responce = res.data;
         if (responce.result === 'Error! Invalid address format') {
-          setError(true)
+          setError({
+            ...error,
+            errorWallet: true
+          })
         } else {
           setWalletData({
             type: data.type,
@@ -60,14 +75,20 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
-        setError(true)
+        setError({
+          ...error,
+          errorWallet: true
+        })
       })
       .finally(() => {
         setIsReceiving(false)
       });
     }
     if(data.type === "Bitcoin") {
-      setError(false)
+      setError({
+        ...error,
+        errorWallet: false
+      })
       setIsReceiving(true)
       axios.get(`https://blockchain.info/q/addressbalance/${data.address}`)
       .then(res => {
@@ -80,7 +101,10 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
-        setError(true)
+        setError({
+          ...error,
+          errorWallet: true
+        })
       })
       .finally(() => {
         setIsReceiving(false)

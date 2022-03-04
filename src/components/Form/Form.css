@@ -31,7 +31,7 @@
 }
 
 .form__select {
-  border: 1px solid black;
+  border: none;
   border-radius: 5px;
   height: 30px;
   font-family: Inter, 'Arial', sans-serif;
@@ -39,6 +39,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
+  color: black;
 }
 
 .form__select:focus {
@@ -50,7 +51,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  border: 1px solid black;
+  border: none;
   border-radius: 5px;
   height: 30px;
   font-family: Inter, 'Arial', sans-serif;
@@ -58,6 +59,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
+  color: black;
 }
 
 .form__input:focus {
@@ -69,7 +71,7 @@
   display: block;
   margin: 20px auto 0 auto;
   width: 300px;
-  background: #dfdfdf;
+  background: #00A173;
   border-radius: 10px;
   box-sizing: border-box;
   padding: 0 10px 0 10px;
@@ -80,7 +82,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: black;
+  color: white;
   text-align: center;
   transition: opacity 0.1s linear 0.1s;
 }

@@ -7,7 +7,7 @@ function Сurrencies({preloader, cruptos, error}) {
   return (
     <div className="сurrencies">
       <h2 className="currencies__header">Ведущие криптовалюты</h2>
-      { error ? <p className="currencies__error">При загрузке данных произошла ошибка, попробуйте перезагрузить страницу.</p> : ''}
+      { error.errorCoins ? <p className="currencies__error">При загрузке данных произошла ошибка, попробуйте перезагрузить страницу.</p> : ''}
       { preloader ? <Preloader/> : 
         <div className="currencies__cryptocurrency-container">
           {cruptos.map((crypto) => (
