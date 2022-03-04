@@ -43,3 +43,28 @@
   color: rgb(230, 0, 0);
   text-align: center;
 }
+
+.wallet__submit {
+  display: block;
+  box-sizing: border-box;
+  margin: 20px auto 0 auto;
+  padding: 13px 0 0 0;
+  height: 45px;
+  width: 300px;
+  background: #00A173;
+  border-radius: 10px;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.1s linear 0.1s;
+}
+
+.wallet__submit:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

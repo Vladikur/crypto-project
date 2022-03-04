@@ -1,6 +1,7 @@
 .form {
   padding-bottom: 50px;
   box-sizing: border-box;
+  background: #AFF0DE;
 }
 
 .form__header {
@@ -31,6 +32,7 @@
 }
 
 .form__select {
+  background: white;
   border: none;
   border-radius: 5px;
   height: 30px;
@@ -51,6 +53,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background: white;
   border: none;
   border-radius: 5px;
   height: 30px;

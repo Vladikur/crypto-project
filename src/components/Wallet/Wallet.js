@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Preloader from '../Preloader/Preloader';
+import { CSVLink } from "react-csv";
 
 function Wallet({wallet, preloader, error}) {
 
   const [balanse, setBalanse] = useState('');
+  const csvData = [
+    ["Тип валюты:"],
+    [`${wallet.type}`],
+    [''],
+    ["Адрес кошелька:"],
+    [`${wallet.address}`],
+    [''],
+    ["Баланс:"],
+    [`${balanse}`]
+  ];
 
   useEffect(() => {
     if (wallet.type === "Bitcoin") {
@@ -29,7 +40,7 @@ function Wallet({wallet, preloader, error}) {
         <p className="wallet__count">{wallet.address}</p>
         <p className="wallet__text">Баланс:</p>
         <p className="wallet__count">{balanse}</p>
-        <button type="button" className="form__submit" >Выгрузить данные в csv</button>
+        <CSVLink className="wallet__submit" data={csvData} filename={"Данные кошелька"}>Выгрузить данные в csv</CSVLink>
       </div>}
     </div>
   );
