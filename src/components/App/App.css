@@ -1,3 +1,7 @@
+body {
+  background: #AFF0DE;
+}
+
 .app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
